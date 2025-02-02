@@ -1,0 +1,9 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.body %></p>
+<% if @article.image.attached? %>
+    <img src="<%= url_for(@article.image) %>" alt="Article Image" width="500">
+<% end %>
+
+<%= link_to "Edit", edit_article_path(@article) %> |
+<%= button_to "Delete", @article, method: :delete, data: { confirm: "Are you sure?" } %>|
+<%= link_to "Back", articles_path %>
